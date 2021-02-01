@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       server.hasMany(models.server_log, {
         foreignKey: 'id_serve',
+        as: 'server',
       });
     }
   };
