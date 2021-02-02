@@ -14,7 +14,7 @@ module.exports = {
       type_log: {
         type: Sequelize.ENUM('ERROR', 'WARNING', 'ALERT')
       },
-      id_serve: {
+      id_server: {
         type: Sequelize.INTEGER
       },
       createdAt: {
