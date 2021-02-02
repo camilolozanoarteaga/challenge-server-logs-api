@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "sequelize db:migrate && node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch":"jest --watch"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
