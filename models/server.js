@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   server.init({
     description: DataTypes.STRING,
-    type_log: DataTypes.ENUM('ERROR', 'WARNING', 'ALERT')
+    server_type: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'server',
