@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "sequelize db:migrate && nodemon ./bin/www"
+    "start": "node_modules/sequelize/sequelize db:migrate && nodemon ./bin/www"
   },
   "dependencies": { 
     "cookie-parser": "~1.4.4",
@@ -19,6 +19,6 @@
     "sequelize-cli": "^6.2.0"
   },
   "engines": {
-    "node": "14.14.0"
+    "node": "14.x"
   }
 }
