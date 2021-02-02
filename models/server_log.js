@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   server_log.init({
     description: DataTypes.STRING,
     type_log: DataTypes.ENUM('ERROR', 'WARNING', 'ALERT'),
-    id_serve: DataTypes.INTEGER
+    id_server: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'server_log',
