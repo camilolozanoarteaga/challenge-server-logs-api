@@ -3,20 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node_modules/sequelize/lib/sequelize.js sequelize db:migrate && nodemon ./bin/www"
+    "start": "sequelize db:migrate && nodemon ./bin/www"
   },
-  "dependencies": { 
+  "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7",
-    "sequelize-cli": "^6.2.0"
+    "nodemon": "^2.0.7"
   },
   "engines": {
     "node": "14.x"
