@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-
-const formatISO = require('date-fns/formatISO');
+const { DateTime } = require('luxon');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -14,12 +13,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    console.log(formatISO(new Date()));
     await queryInterface.bulkInsert('servers', [{
       server_name: 'SERVER-WEB__01',
       description: 'Servidor de aplicaciones web - front',
       server_type: 'VM/OS_LNX',
-      createdAt: formatISO(new Date()),
+      createdAt: '2020-01-02 15:10:22.236000 -05:00',
       updatedAt: '2020-01-02 15:10:22.236000 -05:00',
     },
     {
