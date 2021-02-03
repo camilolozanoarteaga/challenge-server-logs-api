@@ -11,4 +11,10 @@ const getServerByIdData = (id) => server.findAll({
   },
 });
 
-module.exports = { getAllServersData, getServerByIdData };
+const createServerData = (body) => server.create({
+  server_name: body.server,
+  description: body.description,
+  server_type: body.server_type,
+});
+
+module.exports = { getAllServersData, getServerByIdData, createServerData };

@@ -1,5 +1,5 @@
 const { messageResponse, pagination, getPagingData } = require('../utils/utils');
-const { getAllServersData, getServerByIdData } = require('../data/server-data');
+const { getAllServersData, getServerByIdData, createServerData } = require('../data/server-data');
 
 const getAllServersSevice = async (req, res, next) => {
   try {
@@ -29,4 +29,18 @@ const getServerByIdService = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllServersSevice, getServerByIdService };
+const createServerService = async (req, res, next) => {
+  try {
+    const { body } = req;
+
+    body.createdAt = 
+
+    const data = await createServerData(body);
+
+    res.json(messageResponse('Información cargada exitosamente', data));
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getAllServersSevice, getServerByIdService, createServerService };
