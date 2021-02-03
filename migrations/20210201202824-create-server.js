@@ -7,11 +7,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      server_name: {
+        type: Sequelize.STRING,
+      },
       description: {
         type: Sequelize.STRING,
       },
-      type_log: {
-        type: Sequelize.ENUM('ERROR', 'WARNING', 'ALERT'),
+      server_type: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

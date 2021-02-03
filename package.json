@@ -7,10 +7,12 @@
     "dev": "nodemon ./bin/www",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch":"jest --watch"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "date-fns": "^2.16.1",
+    "date-fns-tz": "^1.1.1",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "helmet": "^4.4.1",

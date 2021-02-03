@@ -5,7 +5,11 @@
     "database": "server_logs",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "port": 5432
+    "port": 5432,
+    "dialectOptions": {
+      "useUTC": true
+    },
+    "timezone": "America/Bogota"
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
@@ -14,6 +18,7 @@
       "ssl": {
         "rejectUnauthorized": false
       }
-    }
+    },
+    "timezone": "-05:00"
   }
 }

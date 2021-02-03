@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   server.init({
+    server_name: DataTypes.STRING,
     description: DataTypes.STRING,
     server_type: DataTypes.STRING,
   }, {
