@@ -32,9 +32,6 @@ const getServerByIdService = async (req, res, next) => {
 const createServerService = async (req, res, next) => {
   try {
     const { body } = req;
-
-    body.createdAt = 
-
     const data = await createServerData(body);
 
     res.json(messageResponse('Información cargada exitosamente', data));
