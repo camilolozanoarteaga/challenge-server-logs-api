@@ -1,5 +1,5 @@
 const { messageResponse, pagination, getPagingData } = require('../utils/utils');
-const { getAllServersData, getServerByIdData, createServerData } = require('../data/server-data');
+const { getAllServersData, getServerByIdData, getLogsData } = require('../data/server-data');
 
 const getAllServersSevice = async (req, res, next) => {
   try {
@@ -7,12 +7,7 @@ const getAllServersSevice = async (req, res, next) => {
     const { limit, offset } = pagination(page, size);
     const data = await getAllServersData(limit, offset);
 
-    res.json(
-      messageResponse(
-        'Información cargada exitosamente',
-        getPagingData(data, page, limit),
-      ),
-    );
+    res.json(messageResponse('Información cargada exitosamente', getPagingData(data, page, limit)));
   } catch (error) {
     next(error);
   }
@@ -20,7 +15,9 @@ const getAllServersSevice = async (req, res, next) => {
 
 const getServerByIdService = async (req, res, next) => {
   try {
-    const { params: { id } } = req;
+    const {
+      params: { id },
+    } = req;
     const data = await getServerByIdData(id);
 
     res.json(messageResponse('Información cargada exitosamente', data));
@@ -29,15 +26,21 @@ const getServerByIdService = async (req, res, next) => {
   }
 };
 
-const createServerService = async (req, res, next) => {
+const getLogsService = async (req, res, next) => {
   try {
-    const { body } = req;
-    const data = await createServerData(body);
+    const { page, size, spell } = req.query;
+    const { limit, offset } = pagination(page, size);
 
-    res.json(messageResponse('Información cargada exitosamente', data));
+    const [values, result] = await getLogsData(limit, offset, spell);
+    const data = {
+      count: +result.rowCount,
+      rows: values,
+    };
+
+    res.json(messageResponse('Información cargada exitosamente', getPagingData(data, page, limit)));
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { getAllServersSevice, getServerByIdService, createServerService };
+module.exports = { getAllServersSevice, getServerByIdService, getLogsService };
