@@ -1,7 +1,7 @@
 const messageResponse = (message, body) => {
   const bodyMessage = {
     message: message.toUpperCase(),
-    body,
+    scheme: body,
   };
 
   return bodyMessage;
@@ -15,12 +15,15 @@ const pagination = (page, size) => {
 };
 
 const getPagingData = (data, page, limit) => {
-  const { count: totalItems, rows: body } = data;
+  const { count: totalItems, rows: items } = data;
   const currentPage = page ? +page : 0;
   const totalPages = Math.ceil(totalItems / limit);
 
   return {
-    totalItems, body, totalPages, currentPage,
+    totalItems,
+    items,
+    totalPages,
+    currentPage,
   };
 };
 
