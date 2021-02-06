@@ -10,18 +10,21 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       server.hasMany(models.server_log, {
-        foreignKey: 'id_serve',
-        as: 'server',
+        foreignKey: 'id_server',
+        as: 'logs',
       });
     }
   }
-  server.init({
-    server_name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    server_type: DataTypes.STRING,
-  }, {
-    sequelize,
-    modelName: 'server',
-  });
+  server.init(
+    {
+      server_name: DataTypes.STRING,
+      description: DataTypes.STRING,
+      server_type: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: 'server',
+    },
+  );
   return server;
 };
