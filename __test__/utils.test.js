@@ -3,15 +3,15 @@ const { messageResponse } = require('../utils/utils');
 describe('Comprobarque funcionalidad mensaje respuesta request', () => {
   const bodyMessage = {
     message: 'message'.toUpperCase(),
-    body: '',
+    scheme: '',
   };
 
   const bodyMessageArray = {
     message: 'message'.toUpperCase(),
-    body: [],
+    scheme: [],
   };
 
-  test('Retorna el valor \'message\'', () => {
+  test('Retorna el valor "message"', () => {
     expect(messageResponse('message', '')).toEqual(bodyMessage);
   });
 
