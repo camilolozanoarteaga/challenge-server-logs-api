@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: API server log
+  description: Challenge meli.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Local Server
+  - url: https://challenge-server-logs.herokuapp.com/
+    description: Heroku server (online test)
+paths:
+  /servers:
+    get:
+      tags:
+        - Server and logs service
+      summary: Returns a list of servers.
+      description: List of servers
+      parameters:
+        - name: page
+          in: query
+          description: page
+          required: false
+          type: integer
+          default: 0
+          format: int32
+        - name: size
+          in: query
+          description: size
+          required: false
+          type: integer
+          default: 10
+          format: int32
+      responses:
+        '200':
+          description: ok,
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: integer
+                    format: int64
+                    example: Message
+                  scheme:
+                    type: array
+                    items:
+                      type: object
+
+        '500':
+          description: Error server
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: integer
+                    format: int64
+                    example: Error server
+                  error:
+                    type: string
+                    example: Error message
+  /servers/{id}/logs:
+    get:
+      tags:
+        - Server and logs service
+      summary: Find Server by ID
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: 'path'
+          description: Find Server by ID
+          required: true
+          type: integer
+          minimum: 1
+          format: int32
+      responses:
+        '200':
+          description: ok,
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: integer
+                    format: int64
+                    example: Message
+                  scheme:
+                    type: array
+                    items:
+                      type: object
+        '500':
+          description: Error server
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: integer
+                    format: int64
+                    example: Error server
+                  error:
+                    type: string
+                    example: Error message
+  /logs:
+    get:
+      tags:
+        - Server and logs service
+      summary: Returns a list of logs.
+      description: List of servers
+      parameters:
+        - name: page
+          in: query
+          description: page
+          required: false
+          type: integer
+          default: 0
+          format: int32
+        - name: size
+          in: query
+          description: size
+          required: false
+          type: integer
+          default: 10
+          format: int32
+      responses:
+        '200':
+          description: ok,
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: integer
+                    format: int64
+                    example: Message
+                  scheme:
+                    type: array
+                    items:
+                      type: object
+        '500':
+          description: Error server
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: integer
+                    format: int64
+                    example: Error server
+                  error:
+                    type: string
+                    example: Error message
