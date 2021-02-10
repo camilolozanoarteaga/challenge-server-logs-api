@@ -7,6 +7,15 @@ const messageResponse = (message, body) => {
   return bodyMessage;
 };
 
+const messageErrorResponse = (message, body) => {
+  const bodyMessage = {
+    message: message.toUpperCase(),
+    error: body,
+  };
+
+  return bodyMessage;
+};
+
 const pagination = (page, size) => {
   const limit = size ? +size : 10;
   const offset = page ? page * limit : 0;
@@ -27,4 +36,9 @@ const getPagingData = (data, page, limit) => {
   };
 };
 
-module.exports = { messageResponse, pagination, getPagingData };
+module.exports = {
+  messageResponse,
+  messageErrorResponse,
+  pagination,
+  getPagingData,
+};
