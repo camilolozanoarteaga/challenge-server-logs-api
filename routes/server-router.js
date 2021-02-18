@@ -8,6 +8,6 @@ router.get('/servers', serverServices.getAllServersSevice);
 router.get('/servers/:id/logs', serverServices.getServerByIdService);
 router.get('/logs', serverServices.getLogsService);
 
-// TODO: SE DEBE CREAR API QUE RETORNA LAS ESTADISTICAS MENSUALES
+// TODO: SE DEBE CREAR API QUE RETORNA LAS ESTADÍSTICAS MENSUALES
 
 module.exports = router;
