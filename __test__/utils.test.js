@@ -1,6 +1,6 @@
 const { messageResponse, messageErrorResponse } = require('../utils/utils');
 
-describe('Comprobarque funcionalidad mensaje respuesta request', () => {
+describe('Comprobar que funcionalidad mensaje respuesta request', () => {
   const bodyMessage = {
     message: 'message'.toUpperCase(),
     scheme: '',
